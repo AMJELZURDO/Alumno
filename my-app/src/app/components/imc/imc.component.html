@@ -1,0 +1,26 @@
+  <div class="card">
+    
+    <div class="card-header">Calculemos el índice de tu masa corporal</div>
+
+
+    <div class="card-body">
+      <h4 class="card-title">Cuídate y haz deporte regularmente</h4>
+     
+      <p class="card-text">que lo que tenga que pasar, pasará...</p>
+     <div class="form-group">
+        <br>
+        <label class="m-2" for="Peso">Peso</label>
+        <input class="m-2" type="number" id="peso" [(ngModel)]="peso">
+        <label class="m-2" for="Altura">Altura</label>
+        <input class="m-2" type="number" id="altura" [(ngModel)]="altura">
+        <button class="btn btn-primary" (click)="calcularIMC()">Calcular</button>  
+        <button *ngIf="resultadoIMC!" class="btn btn-warning my-2" (click)="reset()">Resetea</button>
+    </div>
+   
+    </div>
+
+
+  </div>
+
+  
+      
