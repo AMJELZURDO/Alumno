@@ -14,6 +14,8 @@ export class Restaurante {
     especialidad3: string;
     creadoEn:string;
 
+  
+
     constructor()
     {
         this.id =0;
@@ -29,6 +31,7 @@ export class Restaurante {
         this.especialidad2='';
         this.especialidad3='';
         this.creadoEn='';
+      
     }
 
    

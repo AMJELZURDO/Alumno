@@ -11,7 +11,7 @@ export class RestaurantesComponent implements OnInit {
 
 
   lista_restaurantes!:Array<Restaurante>;
-
+  tarjetasMostradas: number = 0; // Variable de control
   constructor(private restauranteService:RestauranteService) { }
 
   ngOnInit(): void {
@@ -34,5 +34,11 @@ export class RestaurantesComponent implements OnInit {
       }
     );
   }
+
+  mostrarNuevaTarjeta(): void {
+    if (this.tarjetasMostradas < this.lista_restaurantes.length) {
+      this.tarjetasMostradas++;
+    }
+}
 
 }

@@ -1,10 +1,14 @@
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Restaurantes</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Málaga</h6>
-      <p class="card-text">Elija restaurante</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+<div class="card-container">
+  <div *ngFor="let restaurante of lista_restaurantes; let i = index" class="fade-in" [hidden]="i >= tarjetasMostradas">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ restaurante.nombre }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ restaurante.barrio }}</h6>
+        <p class="card-text">{{ restaurante.direccion }}</p>
+        <a href="{{ restaurante.web }}" class="card-link">Visitar sitio web</a>
+        <a href="{{ restaurante.fichaGoogle }}" class="card-link">Ver ficha en Google</a>
+      </div>
     </div>
   </div>
- 
+</div>
+<button class="btn btn-primary" (click)="mostrarNuevaTarjeta()">Mostrar Cards</button>
