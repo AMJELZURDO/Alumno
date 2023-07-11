@@ -1,1 +1,11 @@
-<p>perro works!</p>
+<div  *ngIf="perroWeb" class="d-flex justify-content-center">
+    <img alt="Foto Perro" class="img-fluid" src={{perroWeb.message}}>
+    <button (click)="damePerro()" class="btn btn-primary">Cargar Perro</button>
+    </div>
+    <p>la raza es : {{raza |uppercase }}</p>
+
+
+
+
+
+

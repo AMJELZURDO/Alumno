@@ -12,7 +12,9 @@ import { VideoComponent } from './components/video/video.component';
 import { EspejoComponent } from './components/espejo/espejo.component';
 import { CadenaComponent } from './components/cadena/cadena.component';
 import { ImcComponent } from './components/imc/imc.component';
-
+import { ChuckComponent } from './components/chuck/chuck.component';
+import { CdTimerModule } from 'angular-cd-timer';
+import { RestaurantesComponent } from './components/restaurante/restaurantes.component';
 
 
 @NgModule({
@@ -24,15 +26,17 @@ import { ImcComponent } from './components/imc/imc.component';
   VideoComponent,  
   EspejoComponent,
   CadenaComponent,
-  ImcComponent
+  ImcComponent,
+  ChuckComponent,
+  RestaurantesComponent
    
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CdTimerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

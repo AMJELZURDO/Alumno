@@ -4,6 +4,7 @@
     <br>
     <label class="m-2" for="idnum">Numero</label>
     <input class="m-2" type="number" id="idnum" [(ngModel)]="numusuario">
-    <button class="btn btn-primary" (click)="comprobarIntento()">PROBAR</button>
+    <button class="btn btn-primary" (click)="comprobarIntento()">PROBAR</button><br>
      <button *ngIf="finpartida" class="btn btn-warning my-5" (click)="reset()">Volver a jugar</button>
 </div>
+<cd-timer format="intelli" #basicTimer></cd-timer>

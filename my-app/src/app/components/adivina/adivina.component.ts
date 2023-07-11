@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { resetFakeAsyncZone } from '@angular/core/testing';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CdTimerComponent, TimeInterface } from 'angular-cd-timer';
 /**
    * 
    * HACED UNA APP DONDE EL PROGRAMA
@@ -26,21 +26,25 @@ export class AdivinaComponent implements OnInit {
 
   titulo:string;//titulo de la ventana
   numusuario:number;//numero introducido por el usuario
-  numadivina:number;//numero que tiene que adivinar
+  numadivina:number;//numero que adivinar
   intentos:number;
-  finpartida!: boolean;
-  
+  finpartida:boolean;
+  @ViewChild('basicTimer') contador!:CdTimerComponent;
   
   constructor() {
+    this.finpartida=false;
     console.log("Estoy en el constructor");
-    this.titulo = "ADIVINA UN NÚMERO EN 5 INTENTOS";
+    this.titulo = "ADIVINA UN NÚMERO EN 5 INTENTOS entre 1 y 100";
     this.numusuario=0;
-    console.log(this.titulo)
     this.numadivina = this.calcularNumAleaotorioDe1a100();
    
     console.log("Numero a adivinar "+ this.numadivina);
     console.log(`Numero a adivinar ${this.numadivina} por el usuario`);
     this.intentos = 0;
+
+
+    
+
   }
   ngOnInit(): void {
     //throw new Error('Method not implemented.');
@@ -56,38 +60,34 @@ export class AdivinaComponent implements OnInit {
     return numgen;
   }
 
-
-    //TODO: completar la lógico, informando al usuario de las
-    //circunstancias posibles HACERLO CON alert
-    //1- el número buscado es mayor que el introducido
-    //2- el número buscado es menor que el introducido
-    //3- ACIERTO!
-    //4- has perdido! te has quedado sin intentos
-
-
-    comprobarIntento(): void {
-      if (this.numusuario == this.numadivina) {
-        //this.ganopierdo = "ACIERTO!!";
-        window.alert("Has acertado!! Enhorabuena :) ");
-        this.finpartida = true;
+  comprobarIntento(): void {
+    if (this.numusuario == this.numadivina) {
+      //this.ganopierdo = "ACIERTO!!";
+      window.alert("Has acertado!! Enhorabuena :) ");
+      this.finpartida = true;
+    } else {
+      if (this.numusuario < this.numadivina) {
+        //this.mensaje = ;
+        window.alert("El número buscado es mayor que el introducido " + this.numusuario + ".");
       } else {
-        if (this.numusuario < this.numadivina) {
-          //this.mensaje = ;
-          window.alert("Llevas " + this.intentos + ". " +"El número buscado es mayor que el introducido " + this.numusuario + ".");
-          
-        } else {
-          window.alert("Llevas " + this.intentos + ". " +"El número buscado es menor que el introducido " + this.numusuario + ".");
-        }
-        this.intentos++;
-        if (this.intentos == 5) {
-          window.alert(" Has perdido! te has quedado sin intentos. El número buscado era " + this.numadivina + ".");
-          this.finpartida = true;
-          
-        } 
-      }    
+        window.alert("El número buscado es menor que el introducido " + this.numusuario + ".");
+      }
+      this.intentos++;
+      if (this.intentos == 5) {
+        window.alert(" Has perdido! te has quedado sin intentos. El número buscado era " + this.numadivina + ".");
+        this.finpartida = true;
+      } 
+    }    
+    if (this.finpartida)
+    {
+      this.contador.stop();//parar contador
+      let ti:TimeInterface = this.contador.get();
+      console.log("Has tardado " + ti.minutes + " " +ti.seconds);
     }
+  }
+
   reset ()
   {
-  window.location.reload();//recarga pagina la página y con ello el componente
-  }  
+    window.location.reload();//recargo la página y con ello el componente
+  }
 }
