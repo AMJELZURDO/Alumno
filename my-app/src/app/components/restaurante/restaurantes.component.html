@@ -1,7 +1,13 @@
+
+<button class="btn btn-success" routerLink="/restaurantes/nuevo">CREAR</button>
+
 <div class="card-container">
   <div *ngFor="let restaurante of lista_restaurantes; let i = index" class="fade-in" [hidden]="i >= tarjetasMostradas">
     <div class="card">
       <div class="card-body">
+        <div class="card-img-container">
+          <img src="/assets/restaurant.jpg" class="card-img" alt="...">
+        </div>
         <h5 class="card-title">{{ restaurante.nombre }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{ restaurante.barrio }}</h6>
         <p class="card-text">{{ restaurante.direccion }}</p>
@@ -11,4 +17,6 @@
     </div>
   </div>
 </div>
-<button class="btn btn-primary" (click)="mostrarNuevaTarjeta()">Mostrar Cards</button>
+<button class="btn btn-primary" (click)="mostrarNuevaTarjeta()">Mostrar Restaurantes</button>
+
+<button class="btn btn-danger"(click)="borrarRestaurante()">Borrar</button>

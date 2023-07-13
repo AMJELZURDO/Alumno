@@ -15,6 +15,7 @@ import { ImcComponent } from './components/imc/imc.component';
 import { ChuckComponent } from './components/chuck/chuck.component';
 import { CdTimerModule } from 'angular-cd-timer';
 import { RestaurantesComponent } from './components/restaurante/restaurantes.component';
+import { FormularioRestauranteComponent } from './components/formulario-restaurante/formulario-restaurante.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { RestaurantesComponent } from './components/restaurante/restaurantes.com
   CadenaComponent,
   ImcComponent,
   ChuckComponent,
-  RestaurantesComponent
+  RestaurantesComponent,
+  FormularioRestauranteComponent
    
   ],
   imports: [

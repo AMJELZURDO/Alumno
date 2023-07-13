@@ -9,6 +9,7 @@ import { EspejoComponent } from './components/espejo/espejo.component';
 import { VideoComponent } from './components/video/video.component';
 import { ChuckComponent } from './components/chuck/chuck.component';
 import { RestaurantesComponent } from './components/restaurante/restaurantes.component';
+import { FormularioRestauranteComponent } from './components/formulario-restaurante/formulario-restaurante.component';
 
 
 //en este array de rutas tengo q tener una ruta/path asociado al componente
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path:"espejo", component: EspejoComponent},
   {path:"video", component: VideoComponent},
   {path:"chuck", component: ChuckComponent},
-  {path:"restaurantes", component: RestaurantesComponent}
+  {path:"restaurantes", component: RestaurantesComponent},
+  {path:"restaurantes/nuevo", component: FormularioRestauranteComponent}
+
   
 ];
 
